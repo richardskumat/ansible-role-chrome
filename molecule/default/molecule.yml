@@ -5,9 +5,14 @@ driver:
   name: docker
 platforms:
   - name: instance
-    image: docker.io/pycontribs/centos:7
+    image: "${MOLECULE_DISTRO:-qwe1/docker-debian:10-nonfree-molecule}"
+    privileged: true
     pre_build_image: true
+    command: ""
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
 provisioner:
   name: ansible
+  log: true
 verifier:
   name: ansible
