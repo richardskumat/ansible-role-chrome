@@ -1,14 +1,7 @@
 ---
 # tasks file for richardskumat.ansible_role_chrome
 
-- name: Include overrides specific to Debian 9.
-  include_tasks: "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+- name: Include overrides specific to Debian.
+  include_tasks: "Debian.yml"
   when:
     - ansible_distribution == 'Debian'
-    - ansible_distribution_major_version == "9"
-
-- name: Include overrides specific to Debian 10.
-  include_tasks: "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
-  when:
-    - ansible_distribution == 'Debian'
-    - ansible_distribution_major_version == "10"

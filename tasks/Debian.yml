@@ -1,0 +1,28 @@
+---
+
+- name: Ensure gpg and apt-transport-https are present on the system
+  apt:
+   name:
+    - gnupg
+    - apt-transport-https
+   state: present
+   update_cache: yes
+
+# https://www.google.com/linuxrepositories/
+- name: add google apt key
+  apt_key:
+   url: https://dl.google.com/linux/linux_signing_key.pub
+   state: present
+
+# add google chrome apt repo
+- name: add google chrome apt repo
+  apt_repository:
+    repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+    state: present
+    filename: google-chrome
+
+- name: Update apt cache and install chrome stable
+  apt:
+   name: google-chrome-stable
+   state: present
+   update_cache: yes
