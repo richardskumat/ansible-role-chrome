@@ -1,7 +1,7 @@
 ---
 - name: Converge
   hosts: all
-  tasks:
-    - name: "Include richardskumat.ansible_role_chrome"
-      include_role:
-        name: "richardskumat.ansible_role_chrome"
+  become: true
+
+  roles:
+    - role: richardskumat.ansible_role_chrome
