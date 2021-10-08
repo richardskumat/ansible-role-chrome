@@ -6,6 +6,9 @@ name: default
 steps:
   - name: local build
     image: qwe1/dind-ansible-molecule:2.9-root
+    environment:
+      MOLECULE_DISTRO: "qwe1/docker-debian:10-nonfree-molecule"
+      install_state: absent
     volumes:
       - name: dsock
         path: /var/run/docker.sock
