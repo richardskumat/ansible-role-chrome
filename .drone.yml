@@ -4,7 +4,22 @@ type: docker
 name: default
 
 steps:
-  - name: local build
+  - name: present test
+    image: qwe1/dind-ansible-molecule:2.9-root
+    environment:
+      MOLECULE_DISTRO: "qwe1/docker-debian:10-nonfree-molecule"
+      install_state: present
+    volumes:
+      - name: dsock
+        path: /var/run/docker.sock
+    commands:
+      - ls -lah
+      - pwd
+      # I really need some workaround for this nonsense
+      - mkdir -p ~/.ansible/roles && cp -aR "$(pwd)" ~/.ansible/roles/richardskumat.ansible_role_chrome
+      - molecule test
+
+  - name: absent test
     image: qwe1/dind-ansible-molecule:2.9-root
     environment:
       MOLECULE_DISTRO: "qwe1/docker-debian:10-nonfree-molecule"

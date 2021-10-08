@@ -6,7 +6,7 @@ An ansible role to install Google Chrome on Debian.
 Requirements
 ------------
 
-Debian 9, 10 or 11 on remote host and X Server to use Chrome.
+Debian 11 on remote host and X Server to use Chrome.
 
 Role Variables
 --------------
