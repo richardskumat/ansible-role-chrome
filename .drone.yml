@@ -15,7 +15,7 @@ steps:
     commands:
       - ls -lah
       - pwd
-      # I really need some workaround for this nonsense
+      - env
       - mkdir -p ~/.ansible/roles && cp -aR "$(pwd)" ~/.ansible/roles/richardskumat.ansible_role_chrome
       - molecule test
 
@@ -30,7 +30,7 @@ steps:
     commands:
       - ls -lah
       - pwd
-      # I really need some workaround for this nonsense
+      - env
       - mkdir -p ~/.ansible/roles && cp -aR "$(pwd)" ~/.ansible/roles/richardskumat.ansible_role_chrome
       - molecule test
 
