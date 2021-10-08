@@ -12,17 +12,17 @@
 - name: add google apt key
   apt_key:
    url: https://dl.google.com/linux/linux_signing_key.pub
-   state: present
+   state: {{ install_state }}
 
 # add google chrome apt repo
 - name: add google chrome apt repo
   apt_repository:
     repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
-    state: present
+    state: {{ install_state }}
     filename: google-chrome
 
 - name: Update apt cache and install chrome stable
   apt:
    name: google-chrome-stable
-   state: present
+   state: {{ install_state }}
    update_cache: yes

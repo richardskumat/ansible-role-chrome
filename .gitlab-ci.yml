@@ -26,6 +26,7 @@ test_d9:
   stage: test
   variables:
     MOLECULE_DISTRO: "qwe1/docker-debian:9-nonfree-molecule"
+    install_state: present
   script:
     - molecule test
 
@@ -33,6 +34,7 @@ test_d10:
   stage: test
   variables:
     MOLECULE_DISTRO: "qwe1/docker-debian:10-nonfree-molecule"
+    install_state: present
   script:
     - molecule test
 
@@ -40,5 +42,30 @@ test_d11:
   stage: test
   variables:
     MOLECULE_DISTRO: "qwe1/docker-debian:11-nonfree-molecule"
+    install_state: present
+  script:
+    - molecule test
+
+test_d9:
+  stage: test
+  variables:
+    MOLECULE_DISTRO: "qwe1/docker-debian:9-nonfree-molecule"
+    install_state: absent
+  script:
+    - molecule test
+
+test_d10:
+  stage: test
+  variables:
+    MOLECULE_DISTRO: "qwe1/docker-debian:10-nonfree-molecule"
+    install_state: absent
+  script:
+    - molecule test
+
+test_d11:
+  stage: test
+  variables:
+    MOLECULE_DISTRO: "qwe1/docker-debian:11-nonfree-molecule"
+    install_state: absent
   script:
     - molecule test
