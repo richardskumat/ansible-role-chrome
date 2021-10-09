@@ -7,7 +7,7 @@ steps:
   - name: d9
     image: qwe1/dind-ansible-molecule:2.9-root
     environment:
-      MOLECULE_DISTRO: "qwe1/docker-debian:9-nonfree-molecule"
+      MOLECULE_DISTRO: "qwe1/docker-debian:9-molecule"
     volumes:
       - name: dsock
         path: /var/run/docker.sock
@@ -20,7 +20,7 @@ steps:
   - name: d10
     image: qwe1/dind-ansible-molecule:2.9-root
     environment:
-      MOLECULE_DISTRO: "qwe1/docker-debian:10-nonfree-molecule"
+      MOLECULE_DISTRO: "qwe1/docker-debian:10-molecule"
     volumes:
       - name: dsock
         path: /var/run/docker.sock
@@ -33,7 +33,7 @@ steps:
   - name: d11
     image: qwe1/dind-ansible-molecule:2.9-root
     environment:
-      MOLECULE_DISTRO: "qwe1/docker-debian:11-nonfree-molecule"
+      MOLECULE_DISTRO: "qwe1/docker-debian:11-molecule"
     volumes:
       - name: dsock
         path: /var/run/docker.sock
