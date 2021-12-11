@@ -1,5 +1,1 @@
 ---
-# defaults file for richardskumat.ansible_role_chrome
-# valid values present or absent
-# def value present
-install_state: present

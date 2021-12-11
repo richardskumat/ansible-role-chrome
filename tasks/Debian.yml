@@ -12,17 +12,28 @@
 - name: add google apt key
   apt_key:
    url: https://dl.google.com/linux/linux_signing_key.pub
-   state: "{{ install_state }}"
+   state: present
 
 # add google chrome apt repo
-- name: add google chrome apt repo
-  apt_repository:
-    repo: deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
-    state: "{{ install_state }}"
-    filename: google-chrome
+# great so pulling in chrome from apt makes chrome overwrite the file below
+# which then causes my ansible idempotence task to fail
+# - name: add google chrome apt repo
+#  apt_repository:
+#    repo: deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main
+#    state: present
+#    filename: google-chrome
+
+# add google chrome apt repo
+- name: template the apt repo instead
+  template:
+   src: templates/apt-repo.j2
+   dest: /etc/apt/sources.list.d/google-chrome.list
+   owner: root
+   group: root
+   mode: 0400
 
 - name: Update apt cache and install chrome stable
   apt:
    name: google-chrome-stable
-   state: "{{ install_state }}"
+   state: present
    update_cache: yes
