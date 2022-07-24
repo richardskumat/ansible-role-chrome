@@ -1,5 +1,5 @@
 ---
-image: qwe1/dind-ansible-molecule:latest
+image: qwe1/dind-ansible-molecule:2.12.7
 
 variables:
   DOCKER_DRIVER: overlay2
