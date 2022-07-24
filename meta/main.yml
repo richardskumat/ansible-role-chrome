@@ -2,7 +2,7 @@ galaxy_info:
   author: richardskumat
   description: Install Google Chrome on Debian.
   company: none
-  min_ansible_version: 2.9
+  min_ansible_version: '2.9'
   license: GPLv3
 
   platforms:
