@@ -1,7 +1,7 @@
 ---
 
 - name: Ensure gpg and apt-transport-https are present on the system
-  apt:
+  ansible.builtin.apt:
    name:
     - gnupg
     - apt-transport-https
@@ -9,8 +9,8 @@
    update_cache: yes
 
 # https://www.google.com/linuxrepositories/
-- name: add google apt key
-  apt_key:
+- name: Add google apt key
+  ansible.builtin.apt_key:
    url: https://dl.google.com/linux/linux_signing_key.pub
    state: present
 
@@ -24,8 +24,8 @@
 #    filename: google-chrome
 
 # add google chrome apt repo
-- name: template the apt repo instead
-  template:
+- name: Template the apt repo instead
+  ansible.builtin.template:
    src: templates/apt-repo.j2
    dest: /etc/apt/sources.list.d/google-chrome.list
    owner: root
@@ -33,7 +33,7 @@
    mode: 0400
 
 - name: Update apt cache and install chrome stable
-  apt:
+  ansible.builtin.apt:
    name: google-chrome-stable
    state: present
    update_cache: yes

@@ -2,6 +2,6 @@
 # tasks file for richardskumat.ansible_role_chrome
 
 - name: Include overrides specific to Debian.
-  include_tasks: "Debian.yml"
+  ansible.builtin.include_tasks: "Debian.yml"
   when:
     - ansible_distribution == 'Debian'
